@@ -8,7 +8,7 @@ var flash						=	require('connect-flash');
 var methodOverride	=	require('method-override');
 var express					= require("express");
 var app							= express();
-
+let port = process.env.PORT || 9999;
 // require models
 var User						=	require('./models/User');
 var Campground = require('./models/campground');
@@ -108,6 +108,6 @@ app.delete("/campgrounds/:id/comments/:comment_id",middleware.checkCommentOwners
 	});
 });
 
-app.listen(process.env.PORT || 9999, function () {
-	console.log("server is started!");
+app.listen(port, function () {
+	console.log(`Server started at ${port}`);
 });
