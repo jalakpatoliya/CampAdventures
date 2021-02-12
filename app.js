@@ -24,7 +24,13 @@ var middleware			=	require('./middlewares')
 
 // connection to database
 // mongoose.connect("mongodb://localhost:27017/yelp_camp",{ useNewUrlParser: true });
-mongoose.connect("mongodb://jalak:jalak12345@ds127954.mlab.com:27954/campgrounds", { useNewUrlParser: true });
+// mongoose.connect("mongodb://jalak:jalak12345@ds127954.mlab.com:27954/campgrounds", { useNewUrlParser: true });
+
+mongoose.connect(`mongodb+srv://jalak123:UxGSYoQF7TfF5SEz@cluster0.1q4x0.mongodb.net/database?retryWrites=true&w=majority`, { useNewUrlParser: true }, (err, data) => {
+	if (err) { console.log('connection error', err); } else {
+		console.log('DB connected sucessfully');
+	}
+});
 
 // app config
 app.use(flash());
